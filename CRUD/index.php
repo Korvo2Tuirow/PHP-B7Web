@@ -18,13 +18,6 @@ while($resultado = mysqli_fetch_array($query)){
 
 //print_r($resultado);
 
-
-
-
-
-
 echo "</pre>";
-
-
 
 ?>
