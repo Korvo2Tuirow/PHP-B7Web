@@ -36,8 +36,8 @@ echo ucwords($nomeCompleto)."<br>";//Primeira letra em maiuscula de todas as pal
 $arrayNome = explode(" ", $nomeCompleto);// transforma em arrays
 print_r($arrayNome); echo"<br>";//Primeira letra em maiuscula
 
-$numero = 105632.755;
-echo number_format($numero, 2, ',', '.');
+$numero = 10563.755;
+echo number_format($numero, 2, ',', '.');//10.563,76
 
 
 
