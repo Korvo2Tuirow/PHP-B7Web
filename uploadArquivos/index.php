@@ -6,7 +6,7 @@
     <title>Arquivos</title>
 </head>
 <body>
-    <form action="recebedor.php" method="post" enctype="multipart/form-data">
+    <form action="recebedor.php" method="POST" enctype="multipart/form-data">
 
     <input type="file" name="arquivo">
     <input type="submit" value="enviar">
