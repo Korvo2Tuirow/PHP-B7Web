@@ -88,14 +88,81 @@ foreach(array_values($dados) as $valor){
 //////////////////////////////////////////////////////////
 
 
+$array = ["a", "b", "c", "d", "e"];
+print_r($array);
+
+$retorno = array_slice($array, 1, 3);
+
+print_r($retorno);
+echo "<br/>";
+
+$retorno = array_slice($array, -3, 2);
+
+print_r($retorno);
+
+echo "<hr/>";
+//////////////////////////////////////////////////
 
 
+array_splice($array, 1, 2, ["k", 100]);
+print_r($array);
+
+echo "<hr/>";
+
+////////////////////////////////////////////////////
+
+$array = [
+    [
+        'id' => 1,
+        'produto' => 'arroz',
+        'valor' => 10.55
+    ],
+    [
+        'id' => 2,
+        'produto' => 'açucar',
+        'valor' => 22.63
+    ],
+    [
+        'id' => 3,
+        'produto' => 'sal',
+        'valor' => 9
+    ],
+
+];
 
 
+function soma($total, $item){
+    $total += $item['valor'];
+    return $total; 
+};
 
+$total = array_reduce($array,'soma');
 
+print_r($total);
 
+echo "<hr>";
 
+////////////////////////////////////////////////
+
+$numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+$total = array_sum($numeros);
+echo $total;
+
+echo "<hr>";
+
+/////////////////////////////////////////////////
+
+$arrays = ["uva", "vermelho", "Gol" ];
+
+list($fruta, $cor, $carro) = $arrays;
+
+echo "FRUTA = " . $fruta . "<br/>";
+echo "COR = " . $cor . "<br/>";
+echo "CARRO = " . $carro . "<br/>";
+
+echo "<hr/>";
+
+////////////////////////////////////////////////////
 
 
 
