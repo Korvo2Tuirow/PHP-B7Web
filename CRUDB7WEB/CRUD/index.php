@@ -2,10 +2,13 @@
 
 require "../conn.php";
 
+$slq = $pdo->query("SELECT * FROM usuarios");
 
+if($slq->rowCount() > 0){
+    
+    $lista = $slq->fetchAll(PDO::FETCH_ASSOC);
 
-
-
+}
 
 
 
@@ -22,4 +25,21 @@ require "../conn.php";
         <th>Ações</th>
     </tr>
 
+    <?php foreach ($lista as $usuario): ?>
+        <tr>
+            <td><?=$usuario['id']?></td>
+            <td><?=$usuario['nome']?></td>
+            <td><?=$usuario['email']?></td>
+            <td>
+                <a href="editar.php?id=<?=$usuario['id']?>">[ EDITAR ]</a>
+                <a href="excluir.php?id=<?=$usuario['id']?>">[ EXCLUIR ]</a>
+            </td>
+        </tr>
+
+
+    <?php endforeach; ?>
 </table>
+
+
+
+
