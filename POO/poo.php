@@ -100,8 +100,19 @@ class Matematica
 echo Matematica::somar(10, 30);
 
 
+//////////////////////////////////////////////////////////////////////
+
+//HERANÇA
+/////////// FALTA TERMINAR ESSA MATERIA
+class BIO extends Pessoa{
+    private $cpf;
+    public function getCPF(){
+        return $this->cpf;
+    }
+}
 
 
+/////////////////////////////////////////////////////////////////
 
 
 
