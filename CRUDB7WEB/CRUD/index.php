@@ -14,7 +14,8 @@ if($slq->rowCount() > 0){
 
 ?>
 
-<a href="add.php">ADICIONAR USUARIO</a>
+<h1>LISTA DE USUÁRIOS</h1>
+<br>
 
 <table border="1" width="100%">
 
@@ -40,6 +41,8 @@ if($slq->rowCount() > 0){
     <?php endforeach; ?>
 </table>
 
+<br><br>
+<a href="add.php">ADICIONAR USUARIO</a>
 
 
 
