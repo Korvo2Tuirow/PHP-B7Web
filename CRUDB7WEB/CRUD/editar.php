@@ -1,8 +1,9 @@
 <?php 
 
-require "../conn.php" ;
+require "conn.php" ;
 
 $id = filter_input(INPUT_GET, 'id');
+$info = [];
 
 if($id){
 
@@ -32,6 +33,9 @@ if($id){
 <h1>EDITAR USUÁRIO</h1>
 
 <form action="editar_action.php" method="post">
+
+   <input type="hidden" name="id" value="<?=$info['id'];?>">
+
    <label for="nome">
     Nome:<br>
     <input type="text" name="nome" value="<?=$info['nome'];?>">

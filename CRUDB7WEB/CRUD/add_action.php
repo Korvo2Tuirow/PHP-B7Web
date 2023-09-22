@@ -1,5 +1,5 @@
 <?php 
-require "../conn.php";
+require "conn.php";
 
 $nome = filter_input(INPUT_POST, 'nome');
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);

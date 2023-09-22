@@ -1,6 +1,6 @@
 <?php 
 
-require "../conn.php";
+require "conn.php";
 
 $slq = $pdo->query("SELECT * FROM usuarios");
 
@@ -33,7 +33,7 @@ if($slq->rowCount() > 0){
             <td><?=$usuario['email']?></td>
             <td>
                 <a href="editar.php?id=<?=$usuario['id']?>">[ EDITAR ]</a>
-                <a href="excluir.php?id=<?=$usuario['id']?>">[ EXCLUIR ]</a>
+                <a href="excluir.php?id=<?=$usuario['id']?>" onclick="return confirm('DESEJA REALMENTE EXCLUIR?')">[ EXCLUIR ]</a>
             </td>
         </tr>
 
