@@ -1,31 +1,23 @@
 <?php 
 
 require "conn.php" ;
+require 'dao/UsuarioDAOMysql.php';
+
+$usuarioDao = new UsuarioDaoMysql($pdo);
 
 $id = filter_input(INPUT_GET, 'id');
-$info = [];
+$usuario = false;
 
 if($id){
 
-   $sql = $pdo->prepare("SELECT * FROM usuarios WHERE id = :id");
-   $sql->bindValue(':id',$id);
-   $sql->execute();
+   $usuario = $usuarioDao->findById($id);
 
-   if($sql->rowCount()>0){
+}
 
-      $info = $sql->fetch(PDO::FETCH_ASSOC);
-
-   }else{
-      header("Location: index.php");
-      exit;
-   }
-
-}else{
+if($usuario === false){
    header("Location: index.php");
    exit;
 }
-
-
 
 ?>
 
@@ -34,16 +26,16 @@ if($id){
 
 <form action="editar_action.php" method="post">
 
-   <input type="hidden" name="id" value="<?=$info['id'];?>">
+   <input type="hidden" name="id" value="<?=$usuario->getId();?>">
 
    <label for="nome">
     Nome:<br>
-    <input type="text" name="nome" value="<?=$info['nome'];?>">
+    <input type="text" name="nome" value="<?=$usuario->getNome();?>">
    </label><br><br>
 
    <label for="email">
     Email:<br>
-    <input type="text" name="email" value="<?=$info['email'];?>">
+    <input type="text" name="email" value="<?=$usuario->getEmail();?>">
    </label><br><br>
 
    <input type="submit" value="SALVAR">
