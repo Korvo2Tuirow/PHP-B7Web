@@ -113,6 +113,134 @@ class BIO extends Pessoa{
 
 
 /////////////////////////////////////////////////////////////////
+echo"<br /><hr />";
+
+//INTERFACE
+
+interface DataBase{
+    public function listarProdutos();
+    public function adicionarProduto();
+    public function alterarProduto();
+    public function deletarProduto();
+}
+
+class MySQLDB implements DataBase{
+
+    public function listarProdutos(){
+
+    }
+
+    public function adicionarProduto(){
+        echo "Adicionar Produto com Mysql";
+
+    }
+
+    public function alterarProduto(){
+
+    }
+
+    public function deletarProduto(){
+
+    }
+}
+
+//outro arquivo
+class OracleDB implements Database{
+
+    public function listarProdutos(){
+
+    }
+
+    public function adicionarProduto(){
+        echo "Adicionar Produto com Oracle";
+
+    }
+
+    public function alterarProduto(){
+
+    }
+
+    public function deletarProduto(){
+
+    }
+}
+
+$db= new MySQLDB();
+$db->adicionarProduto();
+
+////////////////////////////////////////////////
+echo"<br /><hr />";
+
+///////////////////////////////////////////////////
+
+//POLIMORFISMO
+
+interface Forma{
+    public function getArea();
+    public function getTipo();
+}
+class Quadrado implements Forma{
+
+    private $altura;
+    private $largura;
+
+    public function __construct($l, $a){
+        $this->altura = $a;
+        $this->largura = $l;
+
+    }
+    public function getArea(){
+        return $this->largura * $this->altura;
+    }
+
+    public function getTipo(){
+        return "Quadrado";
+    }
+}
+
+class Circulo{
+
+    private $raio;
+
+    public function __construct($r){
+        $this->raio = $r;
+    }
+
+    public function getArea(){
+        return pi() * ($this->raio * $this->raio);
+    }
+
+    public function getTipo(){
+        return "Circulo";
+    }
+
+}
+
+
+
+$quadrado = new Quadrado(5, 5);
+$circulo = new Circulo(10);
+
+$obj = [ 
+    $quadrado,
+    $circulo
+];
+
+foreach ($obj as $objeto){
+    $tipo = $objeto->getTipo();
+    $area = $objeto->getArea();
+    echo "Area ". $tipo . " : " . $area."<br>";
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

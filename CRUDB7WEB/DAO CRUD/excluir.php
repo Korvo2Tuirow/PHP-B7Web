@@ -1,6 +1,9 @@
 <?php 
 
 require "conn.php";
+require 'dao/UsuarioDAOMysql.php';
+
+$usuarioDao = new UsuarioDaoMysql($pdo);
 
 
 $id = filter_input(INPUT_GET, 'id');
@@ -8,10 +11,9 @@ $id = filter_input(INPUT_GET, 'id');
 
 if ($id){
 
-    $sql = $pdo->prepare("DELETE FROM usuarios WHERE id = :id");
-    $sql->bindValue(':id', $id);
-    $sql->execute(); 
+    $usuarioDao->delete($id);
 
+    
 }
 
 header("location: index.php");

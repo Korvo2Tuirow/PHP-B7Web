@@ -43,3 +43,4 @@ if($usuario === false){
 
 </form>
 
+<a href="index.php">VOLTAR</a>
