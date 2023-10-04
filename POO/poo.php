@@ -1,4 +1,5 @@
 <?php 
+use Classe2\MinhaClasse;
 //CLASSE
 class Post{
     public int $likes = 0;
@@ -232,6 +233,11 @@ foreach ($obj as $objeto){
     echo "Area ". $tipo . " : " . $area."<br>";
 }
 
+////////////////////////
+echo "<br><hr>";
+////////////////////////////////////////////////////////////////////////
+
+//
 
 
 
@@ -246,4 +252,3 @@ foreach ($obj as $objeto){
 
 
 
-?>
